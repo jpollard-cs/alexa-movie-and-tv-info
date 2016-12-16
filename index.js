@@ -40,7 +40,7 @@ app.intent('movieinfo', {
 );
 
 //hack to support custom utterances in utterance expansion string
-var utterancesMethod = app.utterances;
+const utterancesMethod = app.utterances;
 app.utterances = function() {
     return utterancesMethod().replace(/\{\-\|/g, '{');
 };
