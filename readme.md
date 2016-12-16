@@ -42,3 +42,5 @@ then ask movieinfo for info on a movie or tv show e.g.
 or you can just say the name of the tv show or movie when prompted
 
 also note you may need to use a name like `media info` for your invocation as it seems `movie info` is already an Alexa skill (perhaps unsurprising considering Amazon owns IMDB)
+
+to learn more about writing and deploying your own Alexa skill, this is a great starting point: https://github.com/bignerdranch/alexa-airportinfo
