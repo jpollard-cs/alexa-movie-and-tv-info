@@ -14,7 +14,7 @@ app.intent('movieinfo', {
         'slots': {
             'MEDIANAME': 'MEDIATITLE'
         },
-        'utterances': ['{|actors|stars} {|for} {-|MEDIANAME}']
+        'utterances': ['{|actors|stars} {|for|in} {-|MEDIANAME}']
     },
     (req, res) => {
         //get the slot
@@ -28,7 +28,9 @@ app.intent('movieinfo', {
             const mediaHelper = new MovieInfoHelper();
             mediaHelper.requestMovieInfo(mediaName).then((mediaInfo) => {
                 console.log(mediaInfo);
-                res.say(mediaHelper.formatMovieInfo(mediaInfo)).send();
+                res.say(mediaHelper.formatMovieInfo(mediaName, mediaInfo)).send();
+                // now you could continue to prompt the user if they would like too know more information
+                // such as the IMDB rating, rotten tomatoes ratting, plot, etc..
             }).catch(function(err) {
                 console.log(err.statusCode);
                 const prompt = `I didn't have data for a movie or television show by the name of ${mediaName}`;

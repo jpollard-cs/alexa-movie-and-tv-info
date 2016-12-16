@@ -30,7 +30,11 @@ MovieInfoHelper.prototype.getMovieInfo = function(name) {
     return rp(options);
 };
 
-MovieInfoHelper.prototype.formatMovieInfo = function(movieInfo) {
+MovieInfoHelper.prototype.formatMovieInfo = function(name, movieInfo) {
+    if (movieInfo.Error) {
+        return `I didn't have data for a movie or television show by the name of ${mediaName}`;
+    }
+
     return _.template('The main actors in ${title} are ${actors}')({
         title: movieInfo.Title,
         actors: movieInfo.Actors
